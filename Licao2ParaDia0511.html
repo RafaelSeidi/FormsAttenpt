@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset = "utf-8">
+
+    <title></title>
+</head>
+<body>
+
+    <h1> Formulário </h1>
+
+    <form method="GET" action="processo.php" onsubmit="return validaForm();">
+
+        <script>
+                document.validaForm.MC.value = "a";
+        </script>
+
+    <fieldset>
+    <legend> Dados pessoais </legend>
+    <p>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" maxlength="35" size="45" placeholder="Digite seu nome">
+    </p>
+
+    <p>
+            <label for="endereço">Endereço</label>
+            <input type="text" name="endereço" id="endereço" maxlength="35" size="45" placeholder="Digite seu endereço">
+    </p>
+
+    <p>
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" id="cidade" maxlength="35" size="45" placeholder="Digite sua cidade">
+    </p>
+
+    <p>
+            <label for="estado">Estado:</label>
+            <select name="estado" id="estado">
+
+                <option value=""> Selecione seu estado </option>
+
+                <option value="AC"> Acre </option>
+
+                <option value="AL"> Alagoas </option>
+
+                <option value="AP"> Amapá </option>
+
+                <option value="AM"> Amazonas </option>
+
+                <option value="BH"> Bahia </option>
+
+                <option value="CE"> Ceará </option>
+
+                <option value="DF"> Distrito Federal </option>
+
+                <option value="ES"> Espírito Santo </option>
+
+                <option value="GO"> Goiás </option>
+
+                <option value="MA"> Maranhão </option>
+
+                <option value="MT"> Mato Grosso </option>
+
+                <option value="MS"> Mato Grosso do Sul </option>
+
+                <option value="MG"> Minas Gerais </option>
+
+                <option value="PA"> Pará </option>
+
+                <option value="PB"> Paraíba </option>
+
+                <option value="PR"> Paraná </option>
+
+                <option value="PE"> Pernambuco </option>
+
+                <option value="PI"> Piauí </option>
+
+                <option value="RJ"> Rio de Janeiro </option>
+
+                <option value="RN"> Rio Grande do Norte </option>
+
+                <option value="RS"> Rio Grande do Sul </option>
+
+                <option value="RO"> Rondônia </option>
+
+                <option value="RR"> Roraima </option>
+
+                <option value="SC"> Santa Catarina </option>
+
+                <option value="SP"> São Paulo </option>
+
+                <option value="SE"> Sergipe </option>
+
+                <option value="TO"> Tocantins </option>
+
+            </select>
+    </p>
+
+    </fieldset>
+
+    <fieldset>
+
+    <legend> Dados profissionais </legend>
+
+    <p>
+        <label for="ndc"> Natureza do Cargo </label>
+        <br>
+        <input type="radio" name="ndc" id="ndc1" value="G"> Gerência
+        <input type="radio" name="ndc" id="ndc2" value="F"> Financeiro
+        <input type="radio" name="ndc" id="ndc3" value="R"> Recepção
+        <input type="radio" name="ndc" id="ndc4" value="A"> Administrativo
+        <input type="radio" name="ndc" id="ndc5" value="J"> Jurídico
+    </p>
+    <p>
+        <label for="adi"> Área de interesse </label>
+        <br>
+        <input type="checkbox" name="adi" id="adi1" value="C"> Computação
+        <input type="checkbox" name="adi" id="adi2" value="B"> Biologia
+        <input type="checkbox" name="adi" id="adi3" value="MA"> Meio ambiente
+        <input type="checkbox" name="adi" id="adi4" value="E"> Engenharia
+        <input type="checkbox" name="adi" id="adi5" value="H"> História
+    </p>
+
+    <p>
+        <label for="MC"> Mini-currículo: </label>
+        <textarea id="MC" name="MC" rows="4" cols="20" value="" placeholder="Digite seu Mini-currículo"> 
+        </textarea>
+    </p>
+
+    </fieldset>
+
+    <p>
+        <input type="submit" value="Enviar" required> <input type="reset" value="limpar">
+    </p>
+
+
+    </form>
+
+    <script type="text/javascript">
+    
+    function validaForm()
+    {
+        // Nome
+        var CampoNome = document.getElementById("nome");
+        if (CampoNome.value.length < 1)
+        {
+            alert("Obrigatório preencher o campo Nome");
+            CampoNome.focus();
+            return false;
+        }
+
+        // Endereço
+        var CampoEndereço = document.getElementById("endereço");
+        if (CampoEndereço.value.length < 1)
+        {
+            alert("Obrigatório preencher o campo Endereço");
+            CampoEndereço.focus();
+            return false;
+        }
+
+        // Cidade
+        var CampoCidade = document.getElementById("cidade");
+        if (CampoCidade.value.length < 1)
+        {
+            alert("Obrigatório preencher o campo Cidade");
+            CampoCidade.focus();
+            return false;
+        }
+
+        // Estado
+        var CampoEstado = document.getElementById("estado");
+        if (CampoEstado.value.length < 1)
+        {
+            alert("Obrigatório preencher o campo Estado");
+            CampoEstado.focus();
+            return false;
+        }
+
+        // Natureza do cargo
+        var Campondc1 = document.getElementById("ndc1");
+        var Campondc2 = document.getElementById("ndc2");
+        var Campondc3 = document.getElementById("ndc3");
+        var Campondc4 = document.getElementById("ndc4");
+        var Campondc5 = document.getElementById("ndc5");
+        if (Campondc1.checked == false && Campondc2.checked == false && Campondc3.checked == false && Campondc4.checked == false && Campondc5.checked == false)
+        {
+            alert("Obrigatório preencher o campo Natureza do cargo");
+            return false;
+        }
+
+        // Área de interesse
+        var Campoadi1 = document.getElementById("adi1");
+        var Campoadi2 = document.getElementById("adi2");
+        var Campoadi3 = document.getElementById("adi3");
+        var Campoadi4 = document.getElementById("adi4");
+        var Campoadi5 = document.getElementById("adi5");
+        if (Campoadi1.checked == false && Campoadi2.checked == false && Campoadi3.checked == false && Campoadi4.checked == false && Campoadi5.checked == false)
+        {
+            alert("Obrigatório preencher o campo Área de interesse");
+            return false;
+        }
+
+        // Mini-currículo
+        var CampoMC = document.getElementById("MC");
+        if (CampoMC.value.length < 11)
+        {
+            alert("Obrigatório preencher o campo mini-currículo");
+            CampoMC.focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+    </script>
+
+</body>
+</html>
